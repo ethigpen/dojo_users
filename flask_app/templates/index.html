@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Survey</title>
+</head>
+<body class = "container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="/create_survey" method="POST" class = "mt-lg-3 border border-info p-lg-3">
+            <div class="row g-3 align-items-center mb-3">
+                <div class="col-auto">
+                    <label for="name" class="col-form-label">Your Name:</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text"  class="form-control" name = "name">
+                </div>
+            </div>
+            <div class="row g-3 align-items-center mb-3">
+                <div class="col-auto">
+                    <label for="location" class="col-form-label">Dojo Location:</label>
+                </div>
+                <div class="col-auto">
+                    <select class="form-select" name = "location">
+                        <option value="San Jose">San Jose</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Online">Online</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row g-3 align-items-center mb-3">
+                    <div class="col-auto">
+                        <label for="language" class="col-form-label">Favorite Language:</label>
+                    </div>
+                    <div class="col-auto">
+                        <select class="form-select" name = "language">
+                            <option value="Python">Python</option>
+                            <option value="C#">C#</option>
+                            <option value="Java">Java</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comment (optional):</label>
+                <textarea class="form-control" name="comment" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Button</button>
+            </div>
+    </form>
+</body> 
+</html>
